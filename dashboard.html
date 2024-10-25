@@ -28,12 +28,12 @@
                 <i class="bi bi-envelope fs-3 "></i>
             </div>
         </nav>
-        <p class="fw-light fs-3 greeting m-0">
-            Good morning, <span class="text-white fw-normal">Monalisa</span>
+        <p class="fw-light fs-3 greeting m-0 js-greeting">
+            
         </p>
         <div class="d-flex align-items-start my-2">
             <i class="bi bi-calendar4 fs-5 fw-semibold"></i>
-            <span class="ms-1 date js-date"></span>
+            <span class="ms-1 date js-date">Today is Monday, August 26 2024</span>
         </div>
         <p class="quick-action">Quick Actions</p>
     </header>
@@ -64,7 +64,7 @@
             </button>
         </div>
         <div>
-            <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center justify-content-between mt-2">
                 <h6 style="font-size: .7rem;color: rgb(0, 85, 135);">
                     <i class="bi bi-chevron-compact-down"></i>
                     Favorites
@@ -111,7 +111,7 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                     <span style="font-size: .8rem;color: gray;font-weight: 500;">Checking *6016</span>
-                    <h5 style="color: rgb(0, 117, 190);font-weight: 400;">$213,021.44 <i
+                    <h5 style="color: rgb(0, 117, 190);font-weight: 400;">$13,021.44 <i
                             class="bi bi-three-dots-vertical" style="color: gray;"></i></h5>
                 </div>
 
@@ -149,9 +149,27 @@
     <script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js">
     </script>
     <script>
-        const today = dayjs().format('dddd, MMMM D YYYY');
+        const today = dayjs().format('dddd, MMMM D');
         document.querySelector('.js-date').innerHTML = `Today is ${today}`;
-        console.log(dayjs());
+        
+        const time = dayjs();
+        const hours = time.format('H');
+        const minutes = time.format('m');
+        const seconds = time.format('s');
+
+        const greeting = document.querySelector('.js-greeting')
+        
+         if (hours => 1 || hours <=11 ) {
+            greeting.innerHTML = `Good morning, <span class="text-white fw-normal">Katherine</span>`;
+        }else if (hours =>12 || hours <= 17) {
+            greeting.innerHTML = `Good afternoon, <span class="text-white fw-normal">Katherine</span>`;
+        }else{
+            greeting.innerHTML = `Good evening, <span class="text-white fw-normal">Katherine</span>`;
+        }
+        
+      
+        
+        
         
     </script>
 
